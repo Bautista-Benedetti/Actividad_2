@@ -49,15 +49,16 @@ Dentro de Jupyter, navega hasta la carpeta `notebooks` y abre el archivo corresp
 ```
 proyecto/
 │── notebooks/           # Notebooks con analisis y resultados
+│   ├── Ej10.ipynb       # Script del jupyter notebook
 │── src/                 # Código fuente y funciones
+│   ├── __init__.py      # Este archivo lo hace un paquete
 │   ├── funciones.py     # Modulo con funciones principales
-│── Ej10.py              # Script principal del ejercicio
+│── main.py              # Script principal del ejercicio
 │── requirements.txt     # Dependencias del proyecto
 │── README.md            # Instrucciones y documentación
 ```
 
 ## Autor
-Tu nombre o equipo.
+Bautista Benedetti  legajo 17846/7
 
-¡Disfruta el analisis de partidas! 🚀
 
