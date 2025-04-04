@@ -30,9 +30,6 @@ rounds = [
 'Reaper': {'kills': 1, 'assists': 1, 'deaths': True}}
 ]
 
-#queremos saber la clasificacion de cada jugador en cada ronda con base a sus kills, assists y deaths las kills vale 3, los assists 1 y las deaths -1 para ver el MVP de cada ronda
-#la clasificacion de cada jugador es la suma de sus kills, assists y deaths en cada ronda
-# El MVP es el jugador con la mejor clasificación en cada ronda
 def calcular_clasificacion_y_mvp(rounds):
     clasificaciones = []
     jugadores_totales = {}
@@ -57,13 +54,14 @@ def calcular_clasificacion_y_mvp(rounds):
 
         clasificaciones.append({'clasificacion': clasificacion_ronda, 'mvp': mvp})
 
-        # Mostramos el ranking de la ronda
-        print(f"Ranking de la ronda {ronda_idx}:")
-        print("Jugador   Kills   Asistencias   Muertes   MVPs   Puntos")
-        print("--------------------------------------------------------")
+        # Mostramos el ranking de la ronda con puntajes de la ronda
+        print(f"Ronda {ronda_idx}:")
+        print("Jugador   Kills   Asistencias   Muertes   Puntos")
+        print("__________________________________________________")
         for jugador, puntos in sorted(clasificacion_ronda.items(), key=lambda x: x[1], reverse=True):
-            print(f"{jugador:<10}{jugadores_totales[jugador]['kills']:<8}{jugadores_totales[jugador]['assists']:<13}{jugadores_totales[jugador]['deaths']:<9}{jugadores_totales[jugador]['mvps']:<7}{jugadores_totales[jugador]['puntos']:<6}")
-        print("--------------------------------------------------------\n")
+            print(f"{jugador:<10}{ronda[jugador]['kills']:<8}{ronda[jugador]['assists']:<13}{ronda[jugador]['deaths']:<9}{puntos:<6}")
+        print("_________________________________________________")
+        print(f"MVP ronda {ronda_idx}: {mvp}\n")
 
     return clasificaciones, jugadores_totales
 
@@ -72,18 +70,12 @@ def calcular_clasificacion_y_mvp(rounds):
 def mostrar_ranking_final(jugadores_totales):
     print("Ranking final:")
     print("Jugador   Kills   Asistencias   Muertes   MVPs   Puntos")
-    print("--------------------------------------------------------")
+    print("________________________________________________________")
     for jugador, stats in sorted(jugadores_totales.items(), key=lambda x: x[1]['puntos'], reverse=True):
         print(f"{jugador:<10}{stats['kills']:<8}{stats['assists']:<13}{stats['deaths']:<9}{stats['mvps']:<7}{stats['puntos']:<6}")
-    print("--------------------------------------------------------")
+    print("________________________________________________________")
 
 
 # Ejecutamos las funciones
 clasificaciones, jugadores_totales = calcular_clasificacion_y_mvp(rounds)
 mostrar_ranking_final(jugadores_totales)
-
-
-
-
-
- 
