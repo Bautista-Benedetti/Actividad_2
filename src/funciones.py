@@ -1,6 +1,5 @@
 
 def calcular_clasificacion_y_mvp(rounds):
-    clasificaciones = []
     jugadores_totales = {}
 
     for ronda_idx, ronda in enumerate(rounds, start=1):
@@ -21,8 +20,6 @@ def calcular_clasificacion_y_mvp(rounds):
         mvp = max(clasificacion_ronda, key=clasificacion_ronda.get)
         jugadores_totales[mvp]['mvps'] += 1
 
-        clasificaciones.append({'clasificacion': clasificacion_ronda, 'mvp': mvp})
-
         # Mostramos el ranking de la ronda con puntajes de la ronda
         print(f"Ronda {ronda_idx}:")
         print("Jugador   Kills   Asistencias   Muertes   Puntos")
@@ -32,7 +29,7 @@ def calcular_clasificacion_y_mvp(rounds):
         print("_________________________________________________")
         print(f"MVP ronda {ronda_idx}: {mvp}\n")
 
-    return clasificaciones, jugadores_totales
+    return jugadores_totales
 
 
 # Mostramos el ranking final

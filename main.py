@@ -33,6 +33,6 @@ rounds = [
 from src.funciones import calcular_clasificacion_y_mvp, mostrar_ranking_final
 
 # Ejecutamos las funciones
-clasificaciones, jugadores_totales = calcular_clasificacion_y_mvp(rounds)
+jugadores_totales = calcular_clasificacion_y_mvp(rounds)
 mostrar_ranking_final(jugadores_totales)
 
